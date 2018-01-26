@@ -1,6 +1,6 @@
 {
     "name": "devicehive-plugin-core",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "DeviceHive custom plugin core functionality. NodeJS implementation",
     "main": "index.js",
     "repository": {

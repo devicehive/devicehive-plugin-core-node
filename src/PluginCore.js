@@ -82,7 +82,7 @@ class PluginCore {
             me.pluginService.beforeStart();
 
             me._startAuthenticationFlow()
-                .then((pluginTopic) => me.config.AUTO_SUBSCRIPTION_ON_START ? me._subscribePlugin(pluginTopic, SUBSCRIPTION_GROUP) : Promise.resolve())
+                .then((pluginTopic) => me.config.AUTO_SUBSCRIPTION_ON_START ? me._subscribePlugin(pluginTopic, me.config.SUBSCRIPTION_GROUP) : Promise.resolve())
                 .then(() => me.proxyClient.on(`message`, (message) => me._handleMessage(message)))
                 .then(() => me.pluginService.afterStart())
                 .catch((error) => me.pluginService.onError(error));
