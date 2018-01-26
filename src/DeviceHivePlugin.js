@@ -1,5 +1,4 @@
-const configurator = require(`../config`);
-
+const PluginCore = require(`./PluginCore`);
 
 /**
  *  DeviceHive plugin base class
@@ -8,15 +7,28 @@ class DeviceHivePlugin {
 
     /**
      * Configuring and starting DeviceHive Plugin core functionality
-     * @param pathToConfigJsonOdPlainObject
+     * @param pluginService
+     * @param pathToConfigJsonOrPlainObject
      * @param envPrefix
      */
-    static start(pathToConfigJsonOdPlainObject, envPrefix) {
-        if (pathToConfigJsonOdPlainObject) {
-            configurator(pathToConfigJsonOdPlainObject, envPrefix);
-            process.nextTick(() => require(`./core`));
+    static start(pluginService, pathToConfigJsonOrPlainObject, envPrefix) {
+        let shouldExit = false;
+
+        if (pluginService instanceof DeviceHivePlugin) {
+            if (pathToConfigJsonOrPlainObject) {
+                const pluginCore = new PluginCore(pluginService, pathToConfigJsonOrPlainObject, envPrefix);
+
+                pluginCore.start();
+            } else {
+                pluginService.onError(`DeviceHivePlugin is not configured. Please, provide the configuration object or path to configuration json file.`);
+                shouldExit = true;
+            }
         } else {
-            console.error(`DeviceHivePlugin is not configured. Please, provide the configuration object or path to configuration json file.`);
+            console.error(`PluginService should be an instance of DeviceHivePlugin class.`);
+            shouldExit = true;
+        }
+
+        if (shouldExit) {
             process.exit();
         }
     }
