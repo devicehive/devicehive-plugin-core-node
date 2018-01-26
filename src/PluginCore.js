@@ -7,7 +7,7 @@ const dateFormat = require('dateformat');
 
 
 /**
- *
+ * PluginCore class
  */
 class PluginCore {
 
@@ -22,7 +22,12 @@ class PluginCore {
         });
     }
 
-
+    /**
+     * Creates new PluginCore class instance
+     * @param pluginService
+     * @param pathToConfigJsonOrPlainObject
+     * @param envPrefix
+     */
     constructor(pluginService, pathToConfigJsonOrPlainObject, envPrefix) {
         const me = this;
 
