@@ -1,0 +1,22 @@
+{
+    "name": "devicehive-plugin-core",
+    "version": "1.0.0",
+    "description": "DeviceHive custom plugin core functionality. NodeJS implementation",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/devicehive/devicehive-plugin-core-node.git"
+    },
+    "dependencies": {
+        "dateformat": "^3.0.2",
+        "debug": "^3.1.0",
+        "devicehive-proxy-message": "^1.0.11",
+        "json-evn-configurator": "^1.0.5",
+        "request": "^2.83.0",
+        "uuid": "^3.2.1",
+        "ws": "^3.3.3"
+    },
+    "devDependencies": {},
+    "author": "Ihor T.",
+    "license": "Apache-2.0"
+}
