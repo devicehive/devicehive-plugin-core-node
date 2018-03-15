@@ -32,7 +32,7 @@ class PluginCore {
         const me = this;
 
         me.pluginService = pluginService;
-        me.config = configurator(pathToConfigJsonOrPlainObject, envPrefix);
+        me.config = configurator(pathToConfigJsonOrPlainObject, envPrefix, true);
         me._checkConfiguration();
 
         me.proxyClient = new ProxyClient(me.config.DEVICE_HIVE_PLUGIN_WS_ENDPOINT);
