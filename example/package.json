@@ -8,7 +8,7 @@
         "url": "git+https://github.com/devicehive/devicehive-plugin-node-template.git"
     },
     "dependencies": {
-        "devicehive-plugin-core": "^1.1.0",
+        "devicehive-plugin-core": "^1.1.4",
         "devicehive-proxy-message": "^1.0.11"
     },
     "devDependencies": {},

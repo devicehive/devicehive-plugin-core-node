@@ -18,7 +18,10 @@ class PluginCore {
      */
     static _sendHttpRequest(options) {
         return new Promise((resolve, reject) => {
-            request(options, (err, response, body) => err || (body && body.error) ? reject(err || body.message) : resolve(body));
+            request(options, (err, response, body) => {
+                err || (body && body.error) ? reject(err || body.message) :
+                    body ? resolve(body) : reject(`${options.url}: ${response.statusMessage}`)
+            });
         });
     }
 
