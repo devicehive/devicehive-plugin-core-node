@@ -115,7 +115,9 @@ Prefix separator can be overridden by **_ENVSEPARATOR_** environmental variable.
 
     ENVSEPARATOR=_
     PLUGIN_PLUGIN_TOKEN_LIFE_TIME_MIN=60
-    
+
+# Plugin Authentication
+
 For plugin authentication next configuration combinations can bu used:
 
 1) **_PLUGIN_ACCESS_TOKEN_**  
